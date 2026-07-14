@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, RotateCcw, Share2 } from "lucide-react";
 import { quizLookup } from "@/data/quizzes";
 import type { Quiz } from "@/types/quiz";
 
@@ -38,6 +38,7 @@ export default function QuizPlayer({ quiz }: QuizPlayerProps) {
   const [answers, setAnswers] = useState<Array<string | null>>(
     Array(quiz.questions.length).fill(null),
   );
+  const [shareState, setShareState] = useState<"idle" | "shared" | "copied">("idle");
 
   const currentQuestion = quiz.questions[currentIndex];
   const answeredCount = answers.filter(Boolean).length;
@@ -72,7 +73,40 @@ export default function QuizPlayer({ quiz }: QuizPlayerProps) {
   const restart = () => {
     setCurrentIndex(0);
     setAnswers(Array(quiz.questions.length).fill(null));
+    setShareState("idle");
   };
+
+  const handleShare = async () => {
+    const shareUrl = typeof window !== "undefined" ? window.location.href : `https://curioquiz.xyz/quiz/${quiz.slug}/`;
+
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({
+          title: quiz.seoTitle,
+          text: `Take the ${quiz.title} quiz on CurioQuiz.`,
+          url: shareUrl,
+        });
+        setShareState("shared");
+        return;
+      } catch {
+        // Fallback to clipboard if the browser share sheet is dismissed.
+      }
+    }
+
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setShareState("copied");
+        return;
+      } catch {
+        // Ignore clipboard errors and keep the button interactive.
+      }
+    }
+
+    setShareState("idle");
+  };
+
+  const recommendedQuizSlugs = result?.recommendedQuizSlugs ?? quiz.relatedQuizzes;
 
   return (
     <div className="quiz-player">
@@ -97,7 +131,7 @@ export default function QuizPlayer({ quiz }: QuizPlayerProps) {
       </div>
 
       {!completed ? (
-        <section className="question-card" aria-labelledby={`question-${currentQuestion.id}`}>
+        <section className="question-card slide-up" aria-labelledby={`question-${currentQuestion.id}`} key={currentQuestion.id}>
           <p className="question-count">
             Question {currentIndex + 1} of {quiz.questions.length}
           </p>
@@ -132,12 +166,41 @@ export default function QuizPlayer({ quiz }: QuizPlayerProps) {
           </div>
         </section>
       ) : (
-        <section className="result-card" aria-live="polite">
-          <p className="small-label">Your result</p>
-          <h2>{result?.title}</h2>
-          <p>{result?.description}</p>
+        <section className="result-card slide-up" aria-live="polite" key={result?.id ?? "result"}>
+          <div className="result-hero">
+            <div className="result-icon" aria-hidden="true">
+              {result?.icon ?? "✨"}
+            </div>
+            <div>
+              <p className="small-label">Your personality</p>
+              <h2>{result?.title}</h2>
+              <p>{result?.description}</p>
+            </div>
+          </div>
+
+          <div className="result-grid">
+            <div className="page-card result-panel">
+              <h3>Strengths</h3>
+              <ul className="result-list">
+                {result?.strengths?.map((strength) => <li key={strength}>{strength}</li>)}
+              </ul>
+            </div>
+            <div className="page-card result-panel">
+              <h3>Careers</h3>
+              <ul className="result-list">
+                {result?.careers?.map((career) => <li key={career}>{career}</li>)}
+              </ul>
+            </div>
+            <div className="page-card result-panel">
+              <h3>Famous examples</h3>
+              <ul className="result-list">
+                {result?.famousExamples?.map((example) => <li key={example}>{example}</li>)}
+              </ul>
+            </div>
+          </div>
 
           <div className="tip-list">
+            <h3>How to lean into it</h3>
             {result?.tips.map((tip) => (
               <div key={tip} className="benefit-item">
                 <span aria-hidden="true">✦</span>
@@ -151,10 +214,37 @@ export default function QuizPlayer({ quiz }: QuizPlayerProps) {
               <RotateCcw size={17} />
               Restart quiz
             </button>
+            <button className="button button-secondary" type="button" onClick={handleShare}>
+              <Share2 size={17} />
+              {shareState === "shared" ? "Shared" : shareState === "copied" ? "Link copied" : "Share result"}
+            </button>
             <Link className="button button-primary" href="/quizzes/">
               Explore more quizzes
               <ArrowRight size={17} />
             </Link>
+          </div>
+
+          <div className="page-card">
+            <h3>Recommended quizzes</h3>
+            <div className="category-grid result-recommendations">
+              {recommendedQuizSlugs.map((slug) => {
+                const recommendedQuiz = quizLookup[slug];
+                if (!recommendedQuiz) {
+                  return null;
+                }
+
+                return (
+                  <Link key={recommendedQuiz.slug} href={`/quiz/${recommendedQuiz.slug}/`} className="category-card">
+                    <h4>{recommendedQuiz.title}</h4>
+                    <p>{recommendedQuiz.description}</p>
+                    <span className="card-link">
+                      Open quiz
+                      <ArrowRight size={16} />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           <div className="page-card">

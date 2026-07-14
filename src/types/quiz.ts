@@ -14,6 +14,11 @@ export type QuizOutcome = {
   id: string;
   title: string;
   description: string;
+  icon?: string;
+  strengths?: string[];
+  careers?: string[];
+  famousExamples?: string[];
+  recommendedQuizSlugs?: string[];
   tips: string[];
 };
 
