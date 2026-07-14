@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/quizzes",
     "/categories",
     "/kids",
+    "/kids/play",
     "/about",
     "/contact",
     "/methodology",

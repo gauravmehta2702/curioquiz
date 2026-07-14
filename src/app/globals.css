@@ -489,6 +489,220 @@ h3 {
   flex-shrink: 0;
 }
 
+.kids-game-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.kids-title-card,
+.kids-game-card,
+.kids-info-card,
+.kids-start-card,
+.kids-disclaimer {
+  border-radius: 30px;
+  background: white;
+  border: 1px solid rgba(103, 85, 217, 0.12);
+  box-shadow: 0 16px 38px rgba(31, 35, 64, 0.06);
+}
+
+.kids-title-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #fffef9 0%, #f7f2ff 100%);
+}
+
+.kids-heading {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.kids-mascot-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f5fff4 100%);
+}
+
+.kids-game-card {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.kid-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.kid-icon-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(103, 85, 217, 0.14);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.kid-icon-button:hover,
+.kid-icon-button:focus-visible {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.parent-control {
+  border-color: rgba(255, 189, 89, 0.3);
+  background: #fff7e8;
+}
+
+.reward-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.reward-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.garden-path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+  padding: 1rem 0 0.3rem;
+}
+
+.path-line {
+  position: absolute;
+  top: 1.2rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  height: 4px;
+  background: linear-gradient(90deg, #d6c8ff 0%, #ffd47d 100%);
+  z-index: 0;
+}
+
+.path-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 54px;
+  border-radius: 999px;
+  border: 2px solid rgba(103, 85, 217, 0.16);
+  background: white;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.path-node.unlocked {
+  background: var(--surface);
+  color: var(--primary);
+}
+
+.path-node.current {
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(103, 85, 217, 0.16);
+}
+
+.path-node.complete {
+  background: #fff7e8;
+}
+
+.path-caption {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.kids-start-card,
+.kids-info-card,
+.kids-disclaimer {
+  padding: 1.2rem;
+}
+
+.kids-start-card h2,
+.kids-info-card h2,
+.kids-disclaimer h2 {
+  margin-bottom: 0.55rem;
+}
+
+.level-card,
+.final-card {
+  background: linear-gradient(135deg, #fff9e9 0%, #f8f4ff 100%);
+}
+
+.visual-stage {
+  display: grid;
+  place-items: center;
+  min-height: 110px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f9f3ff 0%, #fff8e7 100%);
+  font-size: 2.2rem;
+}
+
+.kids-answer-list {
+  grid-template-columns: 1fr;
+}
+
+.kid-answer-button {
+  min-height: 56px;
+  font-size: 1rem;
+}
+
+.feedback-region {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding-top: 0.3rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.final-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.8rem 0;
+}
+
+.badge-pill {
+  display: inline-flex;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.garden-finish {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 2rem;
+  margin: 0.8rem 0 0.3rem;
+}
+
+.kids-landing-card {
+  background: linear-gradient(135deg, #fdfcf7 0%, #f6f2ff 100%);
+}
+
+.kids-landing-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, #816fe5 50%, #6fc7b3 100%);
+}
+
 .page-card {
   padding: 1.25rem;
   border-radius: var(--radius-lg);
@@ -669,11 +883,25 @@ h3 {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .kid-controls {
+    gap: 0.9rem;
+  }
 }
 
 @media (min-width: 768px) {
   .desktop-nav {
     display: inline-flex;
+  }
+
+  .kids-title-card {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
   }
 
   .nav-action {
@@ -700,11 +928,6 @@ h3 {
     grid-template-columns: 0.8fr 1.2fr;
     align-items: center;
     padding: 2rem;
-  }
-
-  .benefits-grid {
-    grid-template-columns: 0.9fr 1.1fr;
-    align-items: start;
   }
 
   .footer-grid {

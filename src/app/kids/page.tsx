@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "CurioKids | CurioQuiz",
-  description: "A gentle preview of CurioKids, a planned educational game for children aged 6–7 with narration, levels, stars and badges.",
+  title: "Free Learning Game for Children Aged 6–7 | CurioKids",
+  description: "Play a free graphical learning adventure with maths, spelling, patterns, narration, levels and virtual rewards for children aged 6–7.",
   alternates: {
     canonical: "/kids/",
   },
@@ -14,58 +14,72 @@ export default function KidsPage() {
     <main>
       <section className="section">
         <div className="page-container">
-          <div className="page-card page-intro">
+          <div className="page-card page-intro kids-landing-card">
             <p className="small-label">For parents and children</p>
-            <h1>CurioKids is on the way</h1>
+            <h1>Curio’s Treasure Garden</h1>
             <p>
-              CurioKids is a planned learning adventure for children aged 6–7. It is being designed as a calm, colourful experience with maths, spelling, patterns and logic, plus narration, levels, stars, coins and badges.
+              Designed for children aged 6–7, this gentle learning adventure introduces maths, spelling, patterns and logic through calm questions, cheerful rewards and optional narration.
             </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="/quizzes/">
-                Try a quick quiz
+              <Link className="button button-primary" href="/kids/play/">
+                Start Playing
               </Link>
-              <Link className="button button-secondary" href="/about/">
-                Learn more about CurioQuiz
+              <Link className="button button-secondary" href="/quizzes/">
+                Try a quiz too
               </Link>
             </div>
           </div>
 
-          <div className="kids-banner">
+          <div className="kids-banner kids-landing-banner">
             <div className="kids-art">
-              <div className="kids-character" aria-hidden="true">🧒</div>
+              <div className="kids-character" aria-hidden="true">🦊</div>
             </div>
             <div>
-              <p className="small-label small-label-light">Game coming next</p>
-              <h2>Planned features for a warm, child-friendly experience</h2>
+              <p className="small-label small-label-light">Learning adventure</p>
+              <h2>Playful learning with no pressure</h2>
               <p>
-                The full game is not available yet. The aim is to offer a simple, encouraging environment where young learners can practise number ideas, sound patterns, shapes and early problem-solving in a playful way.
+                Children can enjoy short tasks, friendly feedback and virtual rewards while parents can see that the game stays in the browser and does not require an account.
               </p>
             </div>
           </div>
 
-          <div className="benefits-grid page-card">
-            <div>
-              <h2>Parent-friendly approach</h2>
+          <div className="benefits-grid">
+            <div className="page-card">
+              <h2>Parent information</h2>
               <p>
-                CurioKids will be designed with privacy and safety in mind. There will be no adverts, affiliate links or tracking code in the children’s experience.
+                Progress is stored in this browser only. There is no account, no personal information and no purchases. The experience is designed to be educational and reassuring rather than competitive.
               </p>
             </div>
             <div className="benefit-list">
               <div className="benefit-item">
                 <span aria-hidden="true">✦</span>
                 <div>
-                  <h3>Gentle learning</h3>
-                  <p>Short tasks with encouraging feedback and clear progress.</p>
+                  <h3>Built for ages 6–7</h3>
+                  <p>Friendly questions across maths, spelling, patterns and logic.</p>
                 </div>
               </div>
               <div className="benefit-item">
                 <span aria-hidden="true">✦</span>
                 <div>
-                  <h3>Playful rewards</h3>
-                  <p>Stars, coins and badges can support motivation without pressure.</p>
+                  <h3>Optional narration and sound</h3>
+                  <p>Audio can be switched on or off at any time.</p>
+                </div>
+              </div>
+              <div className="benefit-item">
+                <span aria-hidden="true">✦</span>
+                <div>
+                  <h3>Virtual rewards only</h3>
+                  <p>Stars, coins and badges are playful and cannot be purchased.</p>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="page-card kids-disclaimer">
+            <h2>Educational disclaimer</h2>
+            <p>
+              Curio’s Treasure Garden is designed to support curiosity and early learning. It does not guarantee improved grades or learning outcomes, and it is not a diagnostic or academic assessment.
+            </p>
           </div>
         </div>
       </section>
