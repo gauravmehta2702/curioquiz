@@ -18,7 +18,7 @@ export default function PrivacyPage() {
             <p className="small-label">Privacy</p>
             <h1>Privacy and respect</h1>
             <p>
-              CurioQuiz is designed to keep things simple. The quizzes do not require an account and the experience does not send quiz answers to a server.
+              CurioQuiz is designed to keep things simple. Quizzes do not require an account and answers are not sent to a CurioQuiz server. Essential browser storage supports features such as recent quizzes and CurioKids progress. Optional analytics load only after consent.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/terms/">
@@ -48,8 +48,8 @@ export default function PrivacyPage() {
             <div className="benefit-item">
               <span aria-hidden="true">✦</span>
               <div>
-                <h3>Respectful content</h3>
-                <p>CurioQuiz avoids misleading claims and keeps its content focused on helpful reflection.</p>
+                <h3>Optional analytics</h3>
+                <p>Google Analytics or Microsoft Clarity may be enabled later through environment settings, but they load only after a visitor accepts analytics. They are disabled on the active CurioKids game route.</p>
               </div>
             </div>
           </div>

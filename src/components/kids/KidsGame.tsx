@@ -7,7 +7,7 @@ import GameControls from "@/components/kids/GameControls";
 import ProgressPath from "@/components/kids/ProgressPath";
 import RewardSummary from "@/components/kids/RewardSummary";
 import { kidsBadges, kidsQuestions } from "@/data/kidsQuestions";
-import type { KidsProgress, KidsQuestion } from "@/types/kidsGame";
+import type { KidsProgress } from "@/types/kidsGame";
 
 const STORAGE_KEY = "curioquiz-kids-progress";
 const QUESTION_DELAY_MS = 950;
@@ -59,9 +59,9 @@ export default function KidsGame() {
   const [narrationEnabled, setNarrationEnabled] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [currentLevel, setCurrentLevel] = useState(1);
-  const [currentQuestion, setCurrentQuestion] = useState<KidsQuestion | null>(kidsQuestions[0]);
+  const currentQuestion = useMemo(() => kidsQuestions.filter((question) => question.level === currentLevel)[questionIndex % 5] ?? null, [currentLevel, questionIndex]);
 
-  const synthesisRef = useRef<SpeechSynthesis | null>(null);
+
   const musicRef = useRef<AudioContext | null>(null);
   const masterGainRef = useRef<GainNode | null>(null);
   const musicOscillatorRef = useRef<OscillatorNode | null>(null);
@@ -73,8 +73,7 @@ export default function KidsGame() {
     if (stored) {
       try {
         const parsed = JSON.parse(stored) as KidsProgress;
-        setProgress(parsed);
-        setCurrentLevel(parsed.highestLevelUnlocked);
+        window.setTimeout(() => { setProgress(parsed); setCurrentLevel(parsed.highestLevelUnlocked); }, 0);
       } catch {
         // ignore invalid storage
       }
@@ -146,16 +145,6 @@ export default function KidsGame() {
       }
     };
   }, []);
-
-  const currentLevelQuestions = useMemo(() => kidsQuestions.filter((question) => question.level === currentLevel), [currentLevel]);
-
-  useEffect(() => {
-    if (!started) return;
-    const levelQuestion = currentLevelQuestions[questionIndex % 5];
-    if (levelQuestion) {
-      setCurrentQuestion(levelQuestion);
-    }
-  }, [currentLevel, currentLevelQuestions, questionIndex, started]);
 
   const handleAnswer = (answer: string) => {
     if (!currentQuestion) return;

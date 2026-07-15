@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CurioQuiz logo">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6755d9"/><stop offset="1" stop-color="#8a78f0"/></linearGradient></defs>
+  <rect width="512" height="512" rx="128" fill="url(#g)"/>
+  <circle cx="256" cy="256" r="152" fill="#fffdf8" opacity=".96"/>
+  <path d="M172 226c0-46 36-82 84-82s84 36 84 82c0 39-22 64-48 82l-12 42h-48l-12-42c-26-18-48-43-48-82Z" fill="#6755d9"/>
+  <circle cx="218" cy="230" r="25" fill="#fffdf8"/><circle cx="294" cy="230" r="25" fill="#fffdf8"/>
+  <circle cx="218" cy="230" r="9" fill="#1f2340"/><circle cx="294" cy="230" r="9" fill="#1f2340"/>
+  <path d="m256 250 22 18-22 14-22-14 22-18Z" fill="#ffbd59"/>
+</svg>
