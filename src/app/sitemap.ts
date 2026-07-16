@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { quizzes } from "@/data/quizzes";
 import { categories } from "@/data/categories";
 export const dynamic="force-static";
-const base="https://curioquiz.xyz";
+const base="https://mindrailo.com";
 export default function sitemap():MetadataRoute.Sitemap{
  const staticRoutes=["","/quizzes","/categories","/search","/kids","/kids/play","/about","/contact","/methodology","/privacy","/terms","/disclaimer"];
  return [

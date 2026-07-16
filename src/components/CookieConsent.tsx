@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "curioquiz-cookie-consent";
+const STORAGE_KEY = "mindrailo-cookie-consent";
 
 export type ConsentChoice = "accepted" | "declined";
 
@@ -24,7 +24,7 @@ export default function CookieConsent() {
     window.localStorage.setItem(STORAGE_KEY, nextChoice);
     setChoice(nextChoice);
     window.dispatchEvent(
-      new CustomEvent("curioquiz-consent-changed", {
+      new CustomEvent("mindrailo-consent-changed", {
         detail: { choice: nextChoice },
       }),
     );
@@ -37,9 +37,9 @@ export default function CookieConsent() {
       <div>
         <strong>Privacy choices</strong>
         <p>
-          CurioQuiz uses essential browser storage for features such as game
+          Mindrailo uses essential browser storage for features such as game
           progress. Optional analytics will run only after you accept. The
-          active CurioKids game does not load analytics.
+          active Mindrailo Kids game does not load analytics.
         </p>
         <Link href="/privacy/">Read the privacy notice</Link>
       </div>

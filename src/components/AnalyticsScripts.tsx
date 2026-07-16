@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { ConsentChoice } from "@/components/CookieConsent";
 
-const STORAGE_KEY = "curioquiz-cookie-consent";
+const STORAGE_KEY = "mindrailo-cookie-consent";
 
 export default function AnalyticsScripts() {
   const pathname = usePathname();
@@ -21,10 +21,10 @@ export default function AnalyticsScripts() {
     };
 
     const timer = window.setTimeout(readConsent, 0);
-    window.addEventListener("curioquiz-consent-changed", readConsent);
+    window.addEventListener("mindrailo-consent-changed", readConsent);
     return () => {
       window.clearTimeout(timer);
-      window.removeEventListener("curioquiz-consent-changed", readConsent);
+      window.removeEventListener("mindrailo-consent-changed", readConsent);
     };
   }, []);
 
@@ -49,7 +49,7 @@ export default function AnalyticsScripts() {
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
             strategy="afterInteractive"
           />
-          <Script id="curioquiz-ga4" strategy="afterInteractive">
+          <Script id="mindrailo-ga4" strategy="afterInteractive">
             {`window.dataLayer = window.dataLayer || [];
 window.gtag = function(){dataLayer.push(arguments);};
 window.gtag('js', new Date());
@@ -59,7 +59,7 @@ window.gtag('config', '${gaId}', { send_page_view: false, anonymize_ip: true });
       ) : null}
 
       {clarityId ? (
-        <Script id="curioquiz-clarity" strategy="afterInteractive">
+        <Script id="mindrailo-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
   t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;

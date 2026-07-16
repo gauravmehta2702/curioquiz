@@ -9,7 +9,7 @@ import RewardSummary from "@/components/kids/RewardSummary";
 import { kidsBadges, kidsQuestions } from "@/data/kidsQuestions";
 import type { KidsProgress } from "@/types/kidsGame";
 
-const STORAGE_KEY = "curioquiz-kids-progress";
+const STORAGE_KEY = "mindrailo-kids-progress";
 const QUESTION_DELAY_MS = 950;
 
 function createInitialProgress(): KidsProgress {
@@ -62,6 +62,7 @@ export default function KidsGame() {
   const currentQuestion = useMemo(() => kidsQuestions.filter((question) => question.level === currentLevel)[questionIndex % 5] ?? null, [currentLevel, questionIndex]);
 
 
+  const narrationTimerRef = useRef<number | null>(null);
   const musicRef = useRef<AudioContext | null>(null);
   const masterGainRef = useRef<GainNode | null>(null);
   const musicOscillatorRef = useRef<OscillatorNode | null>(null);
@@ -86,19 +87,54 @@ export default function KidsGame() {
   }, [progress]);
 
   useEffect(() => {
-    if (!started || !narrationEnabled || !currentQuestion) return;
     if (typeof window === "undefined") return;
-    if (typeof window.speechSynthesis === "undefined") return;
 
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(`${currentQuestion.instruction}. ${currentQuestion.question}`);
-    utterance.lang = "en-US";
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
-    window.speechSynthesis.speak(utterance);
+    if (narrationTimerRef.current !== null) {
+      window.clearTimeout(narrationTimerRef.current);
+      narrationTimerRef.current = null;
+    }
 
-    return () => window.speechSynthesis.cancel();
-  }, [currentQuestion, narrationEnabled, started]);
+    if (typeof window.speechSynthesis !== "undefined") {
+      window.speechSynthesis.cancel();
+    }
+
+    if (
+      !started ||
+      !narrationEnabled ||
+      !currentQuestion ||
+      showLevelComplete ||
+      showFinalScreen ||
+      typeof window.speechSynthesis === "undefined"
+    ) {
+      return;
+    }
+
+    // Wait until the new question is visibly rendered before reading it aloud.
+    narrationTimerRef.current = window.setTimeout(() => {
+      const utterance = new SpeechSynthesisUtterance(
+        `${currentQuestion.instruction}. ${currentQuestion.question}`,
+      );
+      utterance.lang = "en-US";
+      utterance.rate = 0.82;
+      utterance.pitch = 1;
+      window.speechSynthesis.speak(utterance);
+      narrationTimerRef.current = null;
+    }, 350);
+
+    return () => {
+      if (narrationTimerRef.current !== null) {
+        window.clearTimeout(narrationTimerRef.current);
+        narrationTimerRef.current = null;
+      }
+      window.speechSynthesis.cancel();
+    };
+  }, [
+    currentQuestion,
+    narrationEnabled,
+    showFinalScreen,
+    showLevelComplete,
+    started,
+  ]);
 
   useEffect(() => {
     if (!musicEnabled) {
@@ -135,6 +171,10 @@ export default function KidsGame() {
   useEffect(() => {
     return () => {
       if (typeof window !== "undefined") {
+        if (narrationTimerRef.current !== null) {
+          window.clearTimeout(narrationTimerRef.current);
+          narrationTimerRef.current = null;
+        }
         window.speechSynthesis.cancel();
       }
       if (musicOscillatorRef.current) {
@@ -148,6 +188,10 @@ export default function KidsGame() {
 
   const handleAnswer = (answer: string) => {
     if (!currentQuestion) return;
+
+    if (typeof window !== "undefined" && typeof window.speechSynthesis !== "undefined") {
+      window.speechSynthesis.cancel();
+    }
 
     setSelectedAnswer(answer);
     const isCorrect = answer === currentQuestion.correctAnswer;
@@ -178,15 +222,19 @@ export default function KidsGame() {
         const nextLevel = Math.floor(nextQuestionIndex / 5) + 1;
         const isLevelBoundary = nextQuestionIndex % 5 === 0;
         if (isLevelBoundary) {
-          const levelBadgeId = `level${nextLevel}`;
-          const nextBadges = [...new Set([...nextProgress.earnedBadges, levelBadgeId])];
+          const completedLevelBadgeId = `level${currentLevel}`;
+          const nextBadges = [
+            ...new Set([...nextProgress.earnedBadges, completedLevelBadgeId]),
+          ];
           const updatedProgress = {
             ...nextProgress,
             earnedBadges: nextBadges,
-            highestLevelUnlocked: Math.max(progress.highestLevelUnlocked, nextLevel),
+            highestLevelUnlocked: Math.max(
+              progress.highestLevelUnlocked,
+              nextLevel,
+            ),
           };
           setProgress(updatedProgress);
-          setCurrentLevel(nextLevel);
           setQuestionIndex(nextQuestionIndex);
           setShowLevelComplete(true);
           setSelectedAnswer(null);
@@ -243,9 +291,11 @@ export default function KidsGame() {
   };
 
   const continueLevel = () => {
-    setShowLevelComplete(false);
+    const nextLevel = Math.floor(questionIndex / 5) + 1;
+    setCurrentLevel(nextLevel);
     setSelectedAnswer(null);
     setFeedback("");
+    setShowLevelComplete(false);
   };
 
   const badgeNames = kidsBadges.filter((badge) => progress.earnedBadges.includes(badge.id)).map((badge) => badge.name);
@@ -254,16 +304,16 @@ export default function KidsGame() {
     <div className="kids-game-shell">
       <section className="kids-title-card">
         <div className="kids-heading">
-          <p className="small-label">Curio’s Treasure Garden</p>
+          <p className="small-label">Rilo’s Treasure Garden</p>
           <h1>Start a gentle learning adventure</h1>
           <p>
-            Help Curio collect stars, coins and badges as you journey through maths, spelling, patterns and logic.
+            Help Rilo collect stars, coins and badges as you journey through maths, spelling, patterns and logic.
           </p>
         </div>
-        <div className="mascot-card kids-mascot-card" aria-label="Curio mascot">
+        <div className="mascot-card kids-mascot-card" aria-label="Rilo mascot">
           <div className="mascot-face">🦉</div>
           <p className="small-label">Friendly guide</p>
-          <h2>Curio is ready</h2>
+          <h2>Rilo is ready</h2>
           <p>Tap start and enjoy a warm, calm learning game for children aged 6–7.</p>
         </div>
       </section>
@@ -310,7 +360,7 @@ export default function KidsGame() {
         {showFinalScreen && (
           <div className="kids-start-card final-card">
             <p className="small-label">Garden complete</p>
-            <h2>Curio’s Treasure Garden is complete</h2>
+            <h2>Rilo’s Treasure Garden is complete</h2>
             <p>You collected stars, coins and badges on the full adventure.</p>
             <div className="final-badges">
               {badgeNames.map((badge) => (
@@ -340,7 +390,7 @@ export default function KidsGame() {
                 Play Again
               </button>
               <Link className="button button-secondary" href="/kids/">
-                Return to CurioKids
+                Return to Mindrailo Kids
               </Link>
             </div>
           </div>

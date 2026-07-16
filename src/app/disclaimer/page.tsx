@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Disclaimer | CurioQuiz",
-  description: "Important notes on the informational nature of CurioQuiz quizzes and results.",
+  title: "Disclaimer | Mindrailo",
+  description: "Important notes on the informational nature of Mindrailo quizzes and results.",
   alternates: {
     canonical: "/disclaimer/",
   },
@@ -18,7 +18,7 @@ export default function DisclaimerPage() {
             <p className="small-label">Disclaimer</p>
             <h1>Informational content only</h1>
             <p>
-              CurioQuiz quizzes are designed for entertainment, reflection and learning. Results are not diagnostic, and they should not be taken as a scientific or medical assessment.
+              Mindrailo quizzes are designed for entertainment, reflection and learning. Results are not diagnostic, and they should not be taken as a scientific or medical assessment.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/quizzes/">

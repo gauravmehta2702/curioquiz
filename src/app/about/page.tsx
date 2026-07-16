@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | CurioQuiz",
-  description: "Learn about CurioQuiz, a calm and useful place for short quizzes, curiosity and educational play.",
+  title: "About | Mindrailo",
+  description: "Learn about Mindrailo, a calm and useful place for short quizzes, curiosity and educational play.",
   alternates: {
     canonical: "/about/",
   },
@@ -15,10 +15,10 @@ export default function AboutPage() {
       <section className="section">
         <div className="page-container">
           <div className="page-card page-intro">
-            <p className="small-label">About CurioQuiz</p>
+            <p className="small-label">About Mindrailo</p>
             <h1>Thoughtful quizzes for everyday curiosity</h1>
             <p>
-              CurioQuiz offers short, approachable experiences that invite reflection and learning. The content is designed to be useful, original and easy to explore on a phone or desktop.
+              Mindrailo offers short, approachable experiences that invite reflection and learning. The content is designed to be useful, original and easy to explore on a phone or desktop.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/quizzes/">

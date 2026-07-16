@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import KidsGame from "@/components/kids/KidsGame";
 
 export const metadata: Metadata = {
-  title: "Curio’s Treasure Garden | CurioKids",
+  title: "Rilo’s Treasure Garden | Mindrailo Kids",
   description: "Play a free graphical learning adventure for children aged 6–7 with maths, spelling, patterns, narration and gentle rewards.",
   alternates: {
     canonical: "/kids/play/",

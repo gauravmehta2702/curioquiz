@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Free Learning Game for Children Aged 6–7 | CurioKids",
+  title: "Free Learning Game for Children Aged 6–7 | Mindrailo Kids",
   description: "Play a free graphical learning adventure with maths, spelling, patterns, narration, levels and virtual rewards for children aged 6–7.",
   alternates: {
     canonical: "/kids/",
@@ -16,7 +16,7 @@ export default function KidsPage() {
         <div className="page-container">
           <div className="page-card page-intro kids-landing-card">
             <p className="small-label">For parents and children</p>
-            <h1>Curio’s Treasure Garden</h1>
+            <h1>Rilo’s Treasure Garden</h1>
             <p>
               Designed for children aged 6–7, this gentle learning adventure introduces maths, spelling, patterns and logic through calm questions, cheerful rewards and optional narration.
             </p>
@@ -78,7 +78,7 @@ export default function KidsPage() {
           <div className="page-card kids-disclaimer">
             <h2>Educational disclaimer</h2>
             <p>
-              Curio’s Treasure Garden is designed to support curiosity and early learning. It does not guarantee improved grades or learning outcomes, and it is not a diagnostic or academic assessment.
+              Rilo’s Treasure Garden is designed to support curiosity and early learning. It does not guarantee improved grades or learning outcomes, and it is not a diagnostic or academic assessment.
             </p>
           </div>
         </div>

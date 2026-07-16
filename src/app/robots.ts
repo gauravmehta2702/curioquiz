@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://curioquiz.xyz/sitemap.xml",
+    sitemap: "https://mindrailo.com/sitemap.xml",
   };
 }

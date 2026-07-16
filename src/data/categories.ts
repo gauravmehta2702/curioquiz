@@ -15,8 +15,8 @@ export const categories: Category[] = [
     "description": "Explore everyday patterns in how you think, create and recharge.",
     "introduction": "Explore everyday patterns in how you think, create and recharge. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "✨",
-    "seoTitle": "Personality Quizzes | CurioQuiz",
-    "seoDescription": "Browse free personality quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Personality Quizzes | Mindrailo",
+    "seoDescription": "Browse free personality quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "career",
@@ -24,8 +24,8 @@ export const categories: Category[] = [
     "description": "Reflect on workplace strengths, interests and preferred ways of contributing.",
     "introduction": "Reflect on workplace strengths, interests and preferred ways of contributing. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "💼",
-    "seoTitle": "Career Quizzes | CurioQuiz",
-    "seoDescription": "Browse free career quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Career Quizzes | Mindrailo",
+    "seoDescription": "Browse free career quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "psychology",
@@ -33,8 +33,8 @@ export const categories: Category[] = [
     "description": "Gentle, non-clinical quizzes about habits, decisions and emotional awareness.",
     "introduction": "Gentle, non-clinical quizzes about habits, decisions and emotional awareness. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "🧠",
-    "seoTitle": "Psychology Quizzes | CurioQuiz",
-    "seoDescription": "Browse free psychology quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Psychology Quizzes | Mindrailo",
+    "seoDescription": "Browse free psychology quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "money",
@@ -42,8 +42,8 @@ export const categories: Category[] = [
     "description": "Informational quizzes about spending, saving and everyday financial habits.",
     "introduction": "Informational quizzes about spending, saving and everyday financial habits. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "💰",
-    "seoTitle": "Money Quizzes | CurioQuiz",
-    "seoDescription": "Browse free money quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Money Quizzes | Mindrailo",
+    "seoDescription": "Browse free money quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "relationships",
@@ -51,8 +51,8 @@ export const categories: Category[] = [
     "description": "Explore communication, connection and cooperation in everyday relationships.",
     "introduction": "Explore communication, connection and cooperation in everyday relationships. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "💬",
-    "seoTitle": "Relationships Quizzes | CurioQuiz",
-    "seoDescription": "Browse free relationships quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Relationships Quizzes | Mindrailo",
+    "seoDescription": "Browse free relationships quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "education",
@@ -60,8 +60,8 @@ export const categories: Category[] = [
     "description": "Discover study habits and learning approaches worth experimenting with.",
     "introduction": "Discover study habits and learning approaches worth experimenting with. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "📚",
-    "seoTitle": "Education Quizzes | CurioQuiz",
-    "seoDescription": "Browse free education quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Education Quizzes | Mindrailo",
+    "seoDescription": "Browse free education quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "knowledge",
@@ -69,8 +69,8 @@ export const categories: Category[] = [
     "description": "Test and expand your curiosity across useful and fascinating topics.",
     "introduction": "Test and expand your curiosity across useful and fascinating topics. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "🔎",
-    "seoTitle": "Knowledge Quizzes | CurioQuiz",
-    "seoDescription": "Browse free knowledge quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Knowledge Quizzes | Mindrailo",
+    "seoDescription": "Browse free knowledge quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   },
   {
     "slug": "fun",
@@ -78,8 +78,8 @@ export const categories: Category[] = [
     "description": "Light-hearted quizzes designed for playful self-discovery.",
     "introduction": "Light-hearted quizzes designed for playful self-discovery. Each quiz is designed for reflection and entertainment rather than diagnosis or prediction.",
     "icon": "🎈",
-    "seoTitle": "Fun Quizzes | CurioQuiz",
-    "seoDescription": "Browse free fun quizzes on CurioQuiz. Explore thoughtful questions, useful explanations and related quiz ideas."
+    "seoTitle": "Fun Quizzes | Mindrailo",
+    "seoDescription": "Browse free fun quizzes on Mindrailo. Explore thoughtful questions, useful explanations and related quiz ideas."
   }
 ] as Category[];
 

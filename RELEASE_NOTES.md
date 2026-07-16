@@ -1,16 +1,19 @@
-# CurioQuiz Launch Release 3
+# Mindrailo Launch Rebrand
 
-## Added
-- Search box on the homepage.
-- Filterable quiz library with text search and category filtering.
-- Browser-only saved quizzes and recently completed quizzes.
-- Save/restart/share controls on result pages.
-- Consent-aware quiz, search and sharing analytics events.
-- Additional trust and privacy messaging on the homepage.
-- Installable web-app icon and improved manifest metadata.
+## Brand and domain
 
-## Safety and privacy
-- Saved and recent quizzes use localStorage only.
-- No account or personal information is required.
-- Analytics events run only after analytics consent.
-- Analytics remain disabled inside active CurioKids gameplay.
+- Rebranded CurioQuiz to **Mindrailo**.
+- Updated canonical URLs, sitemap, robots, metadata, structured data and share text to `https://mindrailo.com`.
+- Renamed the children's section to **Mindrailo Kids**.
+- Renamed the guide mascot to **Rilo** and the game to **Rilo's Treasure Garden**.
+- Added a new Mindrailo application icon.
+
+## Included launch features
+
+- Twelve data-driven quizzes.
+- Search and category pages.
+- Browser-only saved and recent quizzes.
+- Consent-aware analytics hooks.
+- Mindrailo Kids game with levels, rewards, narration and locally stored progress.
+- Narration synchronisation fix between level-complete screens and the next question.
+- Cloudflare-compatible static export.

@@ -7,8 +7,8 @@ import { categories, categoryLookup } from "@/data/categories";
 import { quizzes, quizLookup } from "@/data/quizzes";
 import type { Quiz } from "@/types/quiz";
 
-const BOOKMARK_KEY = "curioquiz-bookmarks";
-const RECENT_KEY = "curioquiz-recent";
+const BOOKMARK_KEY = "mindrailo-bookmarks";
+const RECENT_KEY = "mindrailo-recent";
 
 function readList(key: string): string[] {
   try {

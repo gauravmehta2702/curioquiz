@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Methodology | CurioQuiz",
-  description: "See how CurioQuiz designs its short quizzes and why they are meant to be reflective and educational.",
+  title: "Methodology | Mindrailo",
+  description: "See how Mindrailo designs its short quizzes and why they are meant to be reflective and educational.",
   alternates: {
     canonical: "/methodology/",
   },
@@ -18,7 +18,7 @@ export default function MethodologyPage() {
             <p className="small-label">How it works</p>
             <h1>A simple approach to short quizzes</h1>
             <p>
-              CurioQuiz uses a lightweight structure: clear questions, a small number of choices and a simple scoring process that leads to an informational result.
+              Mindrailo uses a lightweight structure: clear questions, a small number of choices and a simple scoring process that leads to an informational result.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/quizzes/">

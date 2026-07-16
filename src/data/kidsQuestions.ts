@@ -247,5 +247,5 @@ export const kidsBadges: KidsBadge[] = [
   { id: "level1", name: "Number Seedling", description: "You completed the first garden path." },
   { id: "level2", name: "Maths Gardener", description: "You grew through the second garden path." },
   { id: "level3", name: "Word Explorer", description: "You opened the word garden." },
-  { id: "level4", name: "Curio Champion", description: "You finished the full garden adventure." },
+  { id: "level4", name: "Rilo Champion", description: "You finished the full garden adventure." },
 ];

@@ -17,7 +17,7 @@ export default function HomeSearch() {
   return (
     <form className="home-search" onSubmit={submit} role="search">
       <Search size={20} aria-hidden="true" />
-      <label className="sr-only" htmlFor="home-search-input">Search CurioQuiz</label>
+      <label className="sr-only" htmlFor="home-search-input">Search Mindrailo</label>
       <input id="home-search-input" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search career, personality, learning…" />
       <button type="submit">Search</button>
     </form>

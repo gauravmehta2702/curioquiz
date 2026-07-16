@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact | CurioQuiz",
-  description: "Get in touch with CurioQuiz about the site, content or feedback.",
+  title: "Contact | Mindrailo",
+  description: "Get in touch with Mindrailo about the site, content or feedback.",
   alternates: {
     canonical: "/contact/",
   },
@@ -21,8 +21,8 @@ export default function ContactPage() {
               If you have feedback, a question about the quizzes or a suggestion for the learning experience, send a note and we will take it on board.
             </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="mailto:hello@curioquiz.xyz">
-                hello@curioquiz.xyz
+              <Link className="button button-primary" href="mailto:hello@mindrailo.com">
+                hello@mindrailo.com
               </Link>
               <Link className="button button-secondary" href="/about/">
                 Read about the project

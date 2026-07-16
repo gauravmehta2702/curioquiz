@@ -4,8 +4,8 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "CurioQuiz",
-    short_name: "CurioQuiz",
+    name: "Mindrailo",
+    short_name: "Mindrailo",
     description: "Free quizzes and educational learning games for curious minds.",
     start_url: "/",
     display: "standalone",
