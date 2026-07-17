@@ -304,16 +304,16 @@ export default function KidsGame() {
     <div className="kids-game-shell">
       <section className="kids-title-card">
         <div className="kids-heading">
-          <p className="small-label">Rilo’s Treasure Garden</p>
+          <p className="small-label">Mindrailo Learning Adventure</p>
           <h1>Start a gentle learning adventure</h1>
           <p>
-            Help Rilo collect stars, coins and badges as you journey through maths, spelling, patterns and logic.
+            Collect stars, coins and badges as you journey through maths, spelling, patterns and logic.
           </p>
         </div>
-        <div className="mascot-card kids-mascot-card" aria-label="Rilo mascot">
+        <div className="mascot-card kids-mascot-card" aria-label="Mindrailo learning guide">
           <div className="mascot-face">🦉</div>
           <p className="small-label">Friendly guide</p>
-          <h2>Rilo is ready</h2>
+          <h2>Your learning guide is ready</h2>
           <p>Tap start and enjoy a warm, calm learning game for children aged 6–7.</p>
         </div>
       </section>
@@ -360,7 +360,7 @@ export default function KidsGame() {
         {showFinalScreen && (
           <div className="kids-start-card final-card">
             <p className="small-label">Garden complete</p>
-            <h2>Rilo’s Treasure Garden is complete</h2>
+            <h2>Mindrailo Learning Adventure is complete</h2>
             <p>You collected stars, coins and badges on the full adventure.</p>
             <div className="final-badges">
               {badgeNames.map((badge) => (

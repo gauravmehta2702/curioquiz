@@ -2,10 +2,10 @@
 
 ## Brand and domain
 
-- Rebranded CurioQuiz to **Mindrailo**.
+- Established the permanent **Mindrailo** brand across the website.
 - Updated canonical URLs, sitemap, robots, metadata, structured data and share text to `https://mindrailo.com`.
 - Renamed the children's section to **Mindrailo Kids**.
-- Renamed the guide mascot to **Rilo** and the game to **Rilo's Treasure Garden**.
+- Standardised the children's experience under **Mindrailo Kids** with no separate mascot brand.
 - Added a new Mindrailo application icon.
 
 ## Included launch features

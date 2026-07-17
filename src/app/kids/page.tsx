@@ -16,7 +16,7 @@ export default function KidsPage() {
         <div className="page-container">
           <div className="page-card page-intro kids-landing-card">
             <p className="small-label">For parents and children</p>
-            <h1>Rilo’s Treasure Garden</h1>
+            <h1>Mindrailo Learning Adventure</h1>
             <p>
               Designed for children aged 6–7, this gentle learning adventure introduces maths, spelling, patterns and logic through calm questions, cheerful rewards and optional narration.
             </p>
@@ -78,7 +78,7 @@ export default function KidsPage() {
           <div className="page-card kids-disclaimer">
             <h2>Educational disclaimer</h2>
             <p>
-              Rilo’s Treasure Garden is designed to support curiosity and early learning. It does not guarantee improved grades or learning outcomes, and it is not a diagnostic or academic assessment.
+              Mindrailo Learning Adventure is designed to support curiosity and early learning. It does not guarantee improved grades or learning outcomes, and it is not a diagnostic or academic assessment.
             </p>
           </div>
         </div>

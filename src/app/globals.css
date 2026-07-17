@@ -1245,3 +1245,44 @@ h3 {
     flex-direction: column;
   }
 }
+
+/* Mindrailo launch result experience */
+.result-highlight-grid {
+  display: grid;
+  gap: .8rem;
+  margin: 1rem 0;
+}
+.result-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--surface), #fff);
+  border: 1px solid rgba(103, 85, 217, .12);
+  color: var(--primary);
+}
+.result-highlight div { display: grid; gap: .2rem; }
+.result-highlight span { color: var(--text-muted); font-size: .88rem; }
+.result-highlight strong { color: var(--text); }
+.score-breakdown { margin: 1rem 0; }
+.score-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.score-note { color: var(--text-muted); font-size: .82rem; white-space: nowrap; }
+.score-list { display: grid; gap: .9rem; }
+.score-label { display: grid; grid-template-columns: 1.5rem 1fr auto; align-items: center; gap: .45rem; margin-bottom: .35rem; }
+.score-label > span:last-child { color: var(--primary); font-weight: 800; }
+.score-track { height: 11px; overflow: hidden; border-radius: 999px; background: var(--surface); }
+.score-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--primary), var(--secondary)); animation: scoreGrow 650ms ease both; }
+.score-explainer { margin-top: .9rem; font-size: .86rem; color: var(--text-muted); }
+.result-recommendations { margin-top: 1.2rem; }
+.result-recommendations > p { margin-bottom: 1rem; }
+@keyframes scoreGrow { from { width: 0; } }
+.narrow-page { max-width: 840px; }
+.narrow-page .faq-item { background: white; border: 1px solid rgba(103,85,217,.12); }
+.narrow-page .faq-item h2 { font-size: 1.08rem; margin-bottom: .4rem; }
+@media (min-width: 760px) {
+  .result-hero { flex-direction: row; align-items: center; }
+  .result-highlight-grid { grid-template-columns: repeat(2, 1fr); }
+  .result-grid { grid-template-columns: repeat(2, 1fr); }
+  .result-grid > :last-child:nth-child(3) { grid-column: 1 / -1; }
+}
