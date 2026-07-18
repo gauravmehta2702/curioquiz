@@ -2,21 +2,13 @@ type ProgressPathProps = {
   level: number;
   completedQuestions: number;
   highestUnlocked: number;
-  totalLevels: number;
-  totalQuestions: number;
 };
 
-export default function ProgressPath({
-  level,
-  completedQuestions,
-  highestUnlocked,
-  totalLevels,
-  totalQuestions,
-}: ProgressPathProps) {
-  const segments = Array.from({ length: totalLevels }, (_, index) => index + 1);
+export default function ProgressPath({ level, completedQuestions, highestUnlocked }: ProgressPathProps) {
+  const segments = [1, 2, 3, 4];
 
   return (
-    <div className="garden-path" aria-label="Learning adventure progress path">
+    <div className="garden-path" aria-label="Garden progress path">
       <div className="path-line" />
       {segments.map((segment) => {
         const unlocked = segment <= highestUnlocked || segment === level;
@@ -30,8 +22,8 @@ export default function ProgressPath({
         );
       })}
       <div className="path-caption">
-        <span>Level {level} of {totalLevels}</span>
-        <span>{Math.min(completedQuestions, totalQuestions)}/{totalQuestions} questions</span>
+        <span>Level {level}</span>
+        <span>{completedQuestions}/20 questions</span>
       </div>
     </div>
   );

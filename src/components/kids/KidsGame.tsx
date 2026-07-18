@@ -11,9 +11,6 @@ import type { KidsProgress } from "@/types/kidsGame";
 
 const STORAGE_KEY = "mindrailo-kids-progress";
 const QUESTION_DELAY_MS = 950;
-const QUESTIONS_PER_LEVEL = 5;
-const TOTAL_QUESTIONS = kidsQuestions.length;
-const TOTAL_LEVELS = Math.max(...kidsQuestions.map((question) => question.level));
 
 function createInitialProgress(): KidsProgress {
   return {
@@ -62,7 +59,7 @@ export default function KidsGame() {
   const [narrationEnabled, setNarrationEnabled] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [currentLevel, setCurrentLevel] = useState(1);
-  const currentQuestion = useMemo(() => kidsQuestions.filter((question) => question.level === currentLevel)[questionIndex % QUESTIONS_PER_LEVEL] ?? null, [currentLevel, questionIndex]);
+  const currentQuestion = useMemo(() => kidsQuestions.filter((question) => question.level === currentLevel)[questionIndex % 5] ?? null, [currentLevel, questionIndex]);
 
 
   const narrationTimerRef = useRef<number | null>(null);
@@ -210,11 +207,11 @@ export default function KidsGame() {
       setProgress(nextProgress);
       const nextQuestionIndex = questionIndex + 1;
       window.setTimeout(() => {
-        if (nextQuestionIndex >= TOTAL_QUESTIONS) {
+        if (nextQuestionIndex >= 20) {
           const finalProgress = {
             ...nextProgress,
             completed: true,
-            earnedBadges: [...new Set([...nextProgress.earnedBadges, `level${TOTAL_LEVELS}`])],
+            earnedBadges: [...new Set([...nextProgress.earnedBadges, "level4"])],
           };
           setProgress(finalProgress);
           setShowFinalScreen(true);
@@ -222,8 +219,8 @@ export default function KidsGame() {
           return;
         }
 
-        const nextLevel = Math.floor(nextQuestionIndex / QUESTIONS_PER_LEVEL) + 1;
-        const isLevelBoundary = nextQuestionIndex % QUESTIONS_PER_LEVEL === 0;
+        const nextLevel = Math.floor(nextQuestionIndex / 5) + 1;
+        const isLevelBoundary = nextQuestionIndex % 5 === 0;
         if (isLevelBoundary) {
           const completedLevelBadgeId = `level${currentLevel}`;
           const nextBadges = [
@@ -294,7 +291,7 @@ export default function KidsGame() {
   };
 
   const continueLevel = () => {
-    const nextLevel = Math.floor(questionIndex / QUESTIONS_PER_LEVEL) + 1;
+    const nextLevel = Math.floor(questionIndex / 5) + 1;
     setCurrentLevel(nextLevel);
     setSelectedAnswer(null);
     setFeedback("");
@@ -310,7 +307,7 @@ export default function KidsGame() {
           <p className="small-label">Mindrailo Learning Adventure</p>
           <h1>Start a gentle learning adventure</h1>
           <p>
-            Collect stars, coins and badges as you journey through maths, spelling, logic, animals, science, English and world discovery.
+            Collect stars, coins and badges as you journey through maths, spelling, patterns and logic.
           </p>
         </div>
         <div className="mascot-card kids-mascot-card" aria-label="Mindrailo learning guide">
@@ -335,12 +332,12 @@ export default function KidsGame() {
 
         <RewardSummary stars={progress.totalStars} coins={progress.totalCoins} badges={badgeNames} />
 
-        <ProgressPath level={currentLevel} completedQuestions={questionIndex} highestUnlocked={progress.highestLevelUnlocked} totalLevels={TOTAL_LEVELS} totalQuestions={TOTAL_QUESTIONS} />
+        <ProgressPath level={currentLevel} completedQuestions={questionIndex} highestUnlocked={progress.highestLevelUnlocked} />
 
         {!started && !showFinalScreen && !showLevelComplete && (
           <div className="kids-start-card">
             <h2>Adventure is waiting</h2>
-            <p>Play one question at a time, enjoy gentle rewards and explore eight varied learning levels together.</p>
+            <p>Play one question at a time, enjoy gentle rewards and explore four garden levels together.</p>
             <button className="button button-primary" type="button" onClick={startGame}>
               Start Adventure
               <Sparkles size={17} />
@@ -364,7 +361,7 @@ export default function KidsGame() {
           <div className="kids-start-card final-card">
             <p className="small-label">Garden complete</p>
             <h2>Mindrailo Learning Adventure is complete</h2>
-            <p>You completed all eight levels and collected stars, coins and badges.</p>
+            <p>You collected stars, coins and badges on the full adventure.</p>
             <div className="final-badges">
               {badgeNames.map((badge) => (
                 <span key={badge} className="badge-pill">
