@@ -1286,3 +1286,35 @@ h3 {
   .result-grid { grid-template-columns: repeat(2, 1fr); }
   .result-grid > :last-child:nth-child(3) { grid-column: 1 / -1; }
 }
+
+/* Growth Release 1: evergreen guide hub */
+.guide-grid { display: grid; gap: 1rem; }
+.guide-card { display: flex; flex-direction: column; align-items: flex-start; }
+.guide-card h2 { font-size: 1.3rem; }
+.guide-card .text-link { margin-top: auto; padding-top: .75rem; }
+.guide-hero { margin-bottom: 1rem; }
+.guide-updated { margin-top: 1rem; color: var(--text-muted); font-size: .86rem; }
+.article-body { display: grid; gap: 1.7rem; margin-bottom: 1rem; }
+.article-body section { display: grid; gap: .72rem; }
+.article-body h2 { margin-bottom: .15rem; }
+.article-body ul { display: grid; gap: .55rem; padding-left: 1.25rem; color: var(--text-muted); }
+.article-body li::marker { color: var(--primary); }
+.compact-quiz-grid { margin-top: 1rem; }
+@media (min-width: 760px) {
+  .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* MindRailo Kids World 2.0 */
+.kids-world-hero{padding:2rem;border-radius:30px;background:linear-gradient(135deg,#5b4bc4,#8a70ea);color:#fff;box-shadow:var(--shadow)}
+.kids-world-hero p{max-width:760px;color:rgba(255,255,255,.9)}
+.filter-hubs{display:grid;gap:1rem;margin:1.5rem 0}.filter-hubs>div,.subject-section,.game-stage,.game-page-head,.affiliate-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.35rem;box-shadow:var(--shadow)}
+.chip-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}.chip-row a{background:var(--surface);color:var(--primary);padding:.55rem .8rem;border-radius:999px;font-weight:700}
+.subject-section{margin:1.4rem 0}.kids-game-grid{display:grid;gap:1rem;margin-top:1rem}.kids-game-card{display:flex;gap:1rem;padding:1rem;border:1px solid var(--border);border-radius:18px;background:var(--background)}.kids-game-card:hover{transform:translateY(-2px);border-color:var(--primary)}.kids-game-card p{color:var(--text-muted)}.kids-game-card small{color:var(--primary);font-weight:700}.game-emoji{font-size:2.2rem}
+.game-page-head{margin-bottom:1rem}.learning-objective{margin-top:1rem;padding:1rem;border-radius:14px;background:var(--surface)}.game-score{font-weight:800;color:var(--primary)}.answer-grid{display:grid;gap:.75rem;margin:1rem 0}.answer-grid button,.ttt-board button,.memory-board button{border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:1rem;font:inherit;font-weight:800;cursor:pointer}.answer-grid button:hover{background:var(--surface-strong)}.game-feedback{font-weight:700}.teacher-help{margin-top:1rem}.teacher-button{background:#fff2ca}.teacher-bubble{margin-top:.75rem;padding:1rem;border-radius:16px;background:#fff9e9;border:1px solid #f1d88a}.teacher-actions{display:flex;gap:.5rem;flex-wrap:wrap}.teacher-actions button{padding:.55rem .8rem;border:0;border-radius:999px;background:var(--primary);color:#fff;cursor:pointer}
+.narrator-panel{display:flex;flex-wrap:wrap;align-items:end;gap:.75rem;margin-top:1rem;padding:1rem;border-radius:16px;background:var(--surface)}.narrator-panel label{display:grid;gap:.25rem;font-weight:700}.narrator-panel select{padding:.55rem;border-radius:10px;border:1px solid var(--border);max-width:240px}.narrator-panel small{width:100%;color:var(--text-muted)}
+.ttt-board{display:grid;grid-template-columns:repeat(3,82px);gap:.5rem;margin:1rem 0}.ttt-board button{height:82px;font-size:2rem}.memory-board{display:grid;grid-template-columns:repeat(4,72px);gap:.6rem;margin:1rem 0}.memory-board button{height:72px;font-size:1.6rem}.snake-board{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem;margin:1rem 0}.snake-board div{padding:.65rem .2rem;text-align:center;border-radius:8px;background:var(--surface);font-weight:700}.snake-board .player-square{background:var(--secondary);outline:3px solid var(--primary)}
+.ad-slot{margin:1.4rem 0;padding:1rem;text-align:center;border:1px dashed var(--border);border-radius:16px;color:var(--text-muted);background:#fff}.ad-slot span{display:block;font-weight:800}.affiliate-box{margin-top:1.4rem}.affiliate-grid{display:grid;gap:.75rem;margin:1rem 0}.affiliate-grid>div{padding:1rem;border-radius:14px;background:var(--surface)}.affiliate-grid span{display:block;color:var(--text-muted)}
+.curriculum-grid{display:grid;gap:1rem;margin-top:1.4rem}.curriculum-card{padding:1.25rem;border:1px solid var(--border);border-radius:20px;background:#fff}.curriculum-card ul{padding-left:1.2rem}.parent-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.4rem 0}.parent-stats div{display:grid;text-align:center;padding:1.3rem;border-radius:18px;background:var(--surface)}.parent-stats strong{font-size:2rem;color:var(--primary)}
+@media(min-width:700px){.kids-game-grid{grid-template-columns:repeat(2,1fr)}.filter-hubs{grid-template-columns:1fr 1fr}.curriculum-grid{grid-template-columns:repeat(2,1fr)}.answer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.kids-game-grid{grid-template-columns:repeat(3,1fr)}.curriculum-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.parent-stats{grid-template-columns:1fr}.ttt-board{grid-template-columns:repeat(3,70px)}.ttt-board button{height:70px}.memory-board{grid-template-columns:repeat(4,58px)}.memory-board button{height:58px}.snake-board{font-size:.8rem}}
