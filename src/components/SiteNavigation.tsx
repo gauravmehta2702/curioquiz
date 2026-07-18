@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Brain, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const links = [["/quizzes/","Quizzes"],["/categories/","Categories"],["/search/","Search"],["/guides/","Guides"],["/kids/","Mindrailo Kids"],["/faq/","FAQ"],["/about/","About"]] as const;
+const links = [["/quizzes/","Quizzes"],["/categories/","Categories"],["/search/","Search"],["/guides/","Guides"],["/kids/","Kids World"],["/faq/","FAQ"],["/about/","About"]] as const;
 export default function SiteNavigation(){
  const [open,setOpen]=useState(false);
  useEffect(()=>{ const fn=(e:KeyboardEvent)=>e.key==="Escape"&&setOpen(false); window.addEventListener("keydown",fn); return()=>window.removeEventListener("keydown",fn)},[]);

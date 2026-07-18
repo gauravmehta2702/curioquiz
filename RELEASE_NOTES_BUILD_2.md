@@ -16,3 +16,12 @@
 - The Help Teacher is an offline guided-hint system in this static release. It does not send children's data to an external AI service.
 - Affiliate links and live ads are not activated until the owner is approved by the relevant programmes and inserts approved IDs/links.
 - The curriculum is a global primary-learning framework, not a claim of official accreditation by every country.
+
+## Build 2.0.1 — Classic game repair
+
+- Rebuilt Tic-Tac-Toe turn handling so the computer cannot play after the player has already won.
+- Added a smarter computer opponent that can win, block, take the centre and choose corners.
+- Added clear turn, win and draw messages and disabled invalid moves.
+- Replaced the small 20-square Snakes & Ladders list with a proper 10 × 10 board numbered 1–100.
+- Added visible snakes, ladders, player token, dice display, exact-roll finish rule and restart control.
+- Improved mobile board scrolling and accessibility labels.
